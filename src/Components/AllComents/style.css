@@ -1,0 +1,40 @@
+.comment-image {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.comment-body {
+  background-color: #d9e1eb;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.user-name {
+  color: #777a87;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.user-profession {
+  color: #88b1fd;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.user-comment {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.item-text {
+  color: black;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.total-likes {
+  color: #aab0bd;
+}
