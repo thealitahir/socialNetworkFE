@@ -69,7 +69,7 @@ const AddComment = ({ handleChange, handleAddComment, handleUpdateComment, handl
             </Col>
             <Col md={3}>
               <Row justify="end">
-                <a onClick={() => handleAddComment(item?._id)} className="add-comment-btn" href="#">
+                <a onClick={() => handleAddComment(item?._id)} className="add-comment-btn" href="http://localhost:3000">
                   Add comment
                 </a>
               </Row>

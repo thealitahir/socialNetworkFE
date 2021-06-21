@@ -3,7 +3,6 @@ import { Menu, Dropdown, Modal, Input } from 'antd';
 import TimeAgo from 'timeago-react';
 
 import { BsThreeDots } from 'react-icons/bs';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import './style.css';
 
