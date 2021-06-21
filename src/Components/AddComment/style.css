@@ -43,3 +43,21 @@
 .add-comment-input {
   border-radius: 20px;
 }
+
+.add-comment-btn {
+  padding: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-align: center;
+  background: #88b1fd;
+  color: white;
+}
+
+.add-comment-btn:hover {
+  padding: 4px;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-align: center;
+  background: #88b1fd;
+  color: white;
+}

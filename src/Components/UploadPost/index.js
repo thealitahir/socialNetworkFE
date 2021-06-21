@@ -1,12 +1,14 @@
 import React from 'react';
+
 import { Row, Col, Image, Input } from 'antd';
+
 import './style.css';
 
 const { TextArea } = Input;
 
 const UploadPost = ({ handleChange, handlePost, data }) => {
   return (
-    <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="post-card-container-main-header">
       <div className="post-card-container">
         <Row>
           <Col md={2}>

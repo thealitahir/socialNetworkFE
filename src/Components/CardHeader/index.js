@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { Menu, Dropdown, Modal, Input } from 'antd';
+import TimeAgo from 'timeago-react';
 
 import { BsThreeDots } from 'react-icons/bs';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import './style.css';
 
-const CardHeader = ({ item, handleChange, handleUpdatePost, setData, data, isPostLoading, handleDeltePost }) => {
+const URL = 'http://localhost:3000';
+
+const CardHeader = ({ item, handleChange, handleUpdatePost, setData, handleDeltePost }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const menu = (
     <Menu>
       <Menu.Item key="0">
-        <a onClick={() => setIsModalVisible(true)}>Update Post</a>
+        <a href={URL} onClick={() => setIsModalVisible(true)}>
+          Update Post
+        </a>
       </Menu.Item>
       <Menu.Item key="1">
-        <a onClick={() => handleDeltePost(item?._id)} href="#">
+        <a href={URL} onClick={() => handleDeltePost(item?._id)}>
           Delete post
         </a>
       </Menu.Item>
@@ -42,16 +47,14 @@ const CardHeader = ({ item, handleChange, handleUpdatePost, setData, data, isPos
           <div className="header-user-name">
             {item?.user?.firstName} {item?.user?.lastName}
           </div>
-          <div className="location-container">
-            <FaMapMarkerAlt size={10} />
-            <div className="location-heading">OH, USA</div>
+          <div className="post-card-time">
+            <TimeAgo datetime={item?.createdAt} locale="en" />
           </div>
-          <div className="post-card-time">1 mint ago</div>
         </div>
       </div>
       <div>
         <Dropdown overlay={menu} trigger={['click']}>
-          <a href="http://localhost:3000" className="ant-dropdown-link" onClick={(e) => console.log('salman')}>
+          <a href={URL} className="ant-dropdown-link">
             <BsThreeDots size={22} />
           </a>
         </Dropdown>

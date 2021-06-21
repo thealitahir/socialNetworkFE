@@ -1,29 +1,16 @@
 import React, { useState } from 'react';
+
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { FaRegCommentDots } from 'react-icons/fa';
 import { Row, Col, Input, Image } from 'antd';
-import './style.css';
+
 import AllComents from '../AllComents';
 
-const AddComment = ({
-  handleChange,
-  handleAddComment,
-  handleGetComment,
-  allComments,
-  data,
-  handleUpdateComment,
-  handleDelteComment,
-  handleLikeComment,
-  handleUnLikeComment,
-  item,
-  likePostFunc,
-}) => {
-  const [showComment, setShowComment] = useState(false);
-  const [addLike, setAddLike] = useState(false);
-  const [id, setId] = useState(item?._id);
-  const [value, setValue] = useState();
+import './style.css';
 
-  console.log('likePostFunc', item?.like);
+const AddComment = ({ handleChange, handleAddComment, handleUpdateComment, handleDelteComment, handleLikeComment, handleUnLikeComment, item, likePostFunc, data }) => {
+  const [showComment, setShowComment] = useState(false);
+
   return (
     <div className="add-comment-container-main">
       <Row gutter={8}>
@@ -51,9 +38,7 @@ const AddComment = ({
         <Col>
           <Row
             onClick={() => {
-              setValue(item?._id);
               setShowComment(!showComment);
-              handleGetComment(item?._id);
             }}
             className="child-container"
           >
@@ -73,13 +58,21 @@ const AddComment = ({
             <Col md={2}>
               <Image className="add-user-image" height={40} width={40} src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
             </Col>
-            <Col md={18}>
+            <Col md={17}>
               <Input
                 onPressEnter={() => handleAddComment(item?._id)}
-                onChange={(e) => handleChange('content', e.target.value)}
+                onChange={(e) => handleChange('comment', e.target.value)}
                 className="add-comment-input"
                 placeholder="Add Comment"
+                value={data?.comment}
               />
+            </Col>
+            <Col md={3}>
+              <Row justify="end">
+                <a onClick={() => handleAddComment(item?._id)} className="add-comment-btn" href="#">
+                  Add comment
+                </a>
+              </Row>
             </Col>
           </Row>
           <div style={{ marginTop: '10px' }}>

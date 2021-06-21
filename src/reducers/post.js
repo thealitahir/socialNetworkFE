@@ -1,9 +1,7 @@
 import createReducer from '../store/createReducer';
 import * as types from '../action/types';
 
-const INITIAL_STATE = {
-  isPostLoading: false,
-};
+const INITIAL_STATE = {};
 
 export const post = createReducer(INITIAL_STATE, {
   [types.ALL_POSTS](state, action) {
@@ -24,20 +22,6 @@ export const post = createReducer(INITIAL_STATE, {
     return {
       ...state,
       commentData: action.commentData,
-    };
-  },
-
-  [types.ALL_COMMENTS](state, action) {
-    return {
-      ...state,
-      allComments: action.allComments,
-    };
-  },
-
-  [types.POST_LOADING](state, action) {
-    return {
-      ...state,
-      isPostLoading: action.isPostLoading,
     };
   },
 });

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+
 import { Row, Col, Image, Modal, Input } from 'antd';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { GrEdit } from 'react-icons/gr';
 import { MdDelete } from 'react-icons/md';
+
 import './style.css';
 
 const AllComents = ({ item, handleUpdateComment, handleChange, handleDelteComment, postId, firstName, lastName, handleLikeComment, handleUnLikeComment }) => {
@@ -32,10 +34,8 @@ const AllComents = ({ item, handleUpdateComment, handleChange, handleDelteCommen
               <Col>
                 <div className="user-name">
                   {firstName} {lastName}
-                  {/* {item?.post?.user?.firstName} {item?.post?.user?.lastName} */}
                 </div>
               </Col>
-              <Col>11 minutes ago</Col>
             </Row>
             <div className="user-profession">Professional Student</div>
             <div className="user-comment">{item?.content}</div>
