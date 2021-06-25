@@ -16,8 +16,8 @@ const UploadPost = ({ handleChange, handlePost, data }) => {
           </Col>
           <Col md={22}>
             <TextArea
-              value={data?.content}
-              onChange={(e) => handleChange('content', e.target.value)}
+              value={data?.postText}
+              onChange={(e) => handleChange('postText', e.target.value)}
               style={{ fontWeight: '500' }}
               bordered={false}
               placeholder="Whats is on your mind?"

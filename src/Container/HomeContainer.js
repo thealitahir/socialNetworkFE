@@ -6,12 +6,14 @@ import { getAllPostFunc, updatePostFunc, addCommentFunc, updateComment, addPostF
 import { HomeScreen } from '../Screen';
 
 const HomeContainer = () => {
+  
   const { postData } = useSelector((store) => store.post);
   const dispatch = useDispatch();
 
   const [data, setData] = useState({
     content: '',
     comment: '',
+    postText: ''
   });
 
   useEffect(() => {
@@ -29,8 +31,8 @@ const HomeContainer = () => {
     dispatch(updatePostFunc(postId, { content: data?.content }));
   };
 
-  const handleAddComment = (postId) => {
-    dispatch(addCommentFunc(postId, data?.comment, setData));
+  const handleAddComment = (postId, comment, setComment) => {
+    dispatch(addCommentFunc(postId, comment, setComment));
   };
 
   const handleUpdateComment = (postId, commentId) => {
@@ -38,7 +40,7 @@ const HomeContainer = () => {
   };
 
   const handlePost = () => {
-    dispatch(addPostFunc(data?.content, setData, data));
+    dispatch(addPostFunc(data?.postText, setData, data));
   };
 
   const handleDelteComment = (postId, commentId) => {

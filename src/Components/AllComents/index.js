@@ -10,6 +10,8 @@ import './style.css';
 const AllComents = ({ item, handleUpdateComment, handleChange, handleDelteComment, postId, firstName, lastName, handleLikeComment, handleUnLikeComment }) => {
   const [likeComment, setLikeComment] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+
   const handleOk = () => {
     handleUpdateComment(postId, item?._id);
     setIsModalVisible(false);
@@ -21,8 +23,9 @@ const AllComents = ({ item, handleUpdateComment, handleChange, handleDelteCommen
 
   return (
     <div style={{ width: '100%' }}>
+     
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <Input placeholder={item?.content} onChange={(e) => handleChange('content', e.target.value)} />
+        <Input style={{color: 'black'}} defaultValue={item?.content} onChange={(e) => handleChange('content', e.target.value)} />
       </Modal>
       <Row align="middle">
         <Col md={2}>

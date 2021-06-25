@@ -26,7 +26,18 @@ export function getAllPostFunc() {
   return (dispatch) => {
     Api.get('post/')
       .then((resp) => {
-        dispatch(getAllPost(resp));
+        let data = Object.values(resp.data); 
+
+        for(let item=0; item< data.length; item++){
+          data[item] = JSON.parse(data[item])
+        }
+        data.sort(function(first_number, second_number) {
+          var first_number_date = new Date(first_number.createdAt);
+          var second_number_date = new Date(second_number.createdAt);
+          return first_number_date-second_number_date;
+        });
+        
+        dispatch(getAllPost(data.reverse()));
       })
       .catch(() => {});
   };
@@ -37,6 +48,7 @@ export function updatePostFunc(postId, value) {
     Api.patch(`post/${postId}`, value)
       .then((resp) => {
         dispatch(updatePost(resp));
+        dispatch(getAllPostFunc(resp));
       })
       .catch(() => {});
   };
@@ -48,9 +60,7 @@ export function addCommentFunc(postId, content, setData) {
       content: content,
     })
       .then((resp) => {
-        setData({
-          comment: '',
-        });
+        setData();
         dispatch(addComment(resp));
         dispatch(getAllPostFunc());
       })
@@ -77,7 +87,7 @@ export function addPostFunc(content, setData) {
     })
       .then((resp) => {
         setData({
-          content: '',
+          postText: '',
         });
         dispatch(getAllPostFunc());
       })

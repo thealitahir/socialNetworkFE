@@ -25,7 +25,7 @@ class Api {
   }
 
   static async xhr(route, params, verb) {
-    const host = 'http://aqueous-dusk-72684.herokuapp.com/api/';
+    const host = 'http://localhost:5000/api/';
     const url = `${host}${route}`;
     let options = Object.assign({ method: verb }, params ? { body: JSON.stringify(params) } : null);
     options.headers = await Api.headers();

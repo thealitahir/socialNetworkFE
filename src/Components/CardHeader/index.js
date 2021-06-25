@@ -6,7 +6,7 @@ import { BsThreeDots } from 'react-icons/bs';
 
 import './style.css';
 
-const URL = 'http://localhost:3000';
+const URL = '#';
 
 const CardHeader = ({ item, handleChange, handleUpdatePost, setData, handleDeltePost }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -36,7 +36,7 @@ const CardHeader = ({ item, handleChange, handleUpdatePost, setData, handleDelte
   return (
     <div className="header-container">
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <Input placeholder={item?.content} onChange={(e) => handleChange('content', e.target.value)} />
+        <Input defaultValue={item?.content} onChange={(e) => handleChange('content', e.target.value)} />
       </Modal>
       <div className="right-container">
         <div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
 
 import { PostCard, UploadPost } from '../Components/index';
@@ -21,14 +21,13 @@ const HomeScreen = ({
   likePostFunc,
 }) => {
   const [state, setState] = useState(false);
-  console.log('item', postData?.data);
   return (
     <div>
       <Row>
         <Col md={24}>
           <Row justify="center">
             <UploadPost data={data} handleChange={handleChange} handlePost={handlePost} />
-            {postData?.data?.map((item) => {
+            {postData?.map((item) => {
               return (
                 <PostCard
                   key={item._id}

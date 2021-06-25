@@ -10,7 +10,7 @@ import './style.css';
 
 const AddComment = ({ handleChange, handleAddComment, handleUpdateComment, handleDelteComment, handleLikeComment, handleUnLikeComment, item, likePostFunc, data }) => {
   const [showComment, setShowComment] = useState(false);
-
+  const [comment, setComment] = useState('')
   return (
     <div className="add-comment-container-main">
       <Row gutter={8}>
@@ -60,16 +60,16 @@ const AddComment = ({ handleChange, handleAddComment, handleUpdateComment, handl
             </Col>
             <Col md={17}>
               <Input
-                onPressEnter={() => handleAddComment(item?._id)}
-                onChange={(e) => handleChange('comment', e.target.value)}
+                onPressEnter={() => handleAddComment(item?._id, comment, setComment)}
+                onChange={(e) => handleChange('comment', setComment(e.target.value))}
                 className="add-comment-input"
                 placeholder="Add Comment"
-                value={data?.comment}
+                value={comment}
               />
             </Col>
             <Col md={3}>
               <Row justify="end">
-                <a onClick={() => handleAddComment(item?._id)} className="add-comment-btn" href="http://localhost:3000">
+                <a onClick={() => handleAddComment(item?._id, comment, setComment)} className="add-comment-btn">
                   Add comment
                 </a>
               </Row>
